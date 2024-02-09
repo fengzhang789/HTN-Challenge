@@ -22,6 +22,13 @@ export default {
         normal: '400',
         bold: '700',
       },
+      colors: {
+        'text': 'oklab(94.12% 0.009 -0.02)',
+        'background': 'oklab(7.30% 0.003 -0.02)',
+        'primary': 'oklab(45.61% 0.016 -0.24)',
+        'secondary': 'oklab(12.16% 0.001 -0.08)',
+        'accent': 'oklab(36.92% -0.023 -0.25)',
+       },
     },
   },
   plugins: [],
