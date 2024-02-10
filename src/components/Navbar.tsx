@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className='inline flex flex-row gap-4
                             sm:gap-6 xl:gap-8'>
                 <LoginButton />
-                <PrimaryButton text='Events'/>
+                <PrimaryButton text='Events' link='./events'/>
             </div>
         </div>
     </nav>
