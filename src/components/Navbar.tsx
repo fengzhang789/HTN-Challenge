@@ -1,8 +1,8 @@
-import LoginButton from '../components/buttons/LoginButton'
-import PrimaryButton from '../components/buttons/PrimaryButton'
+import LoginButton from './ui/LoginButton'
+import PrimaryButton from './ui/PrimaryButton'
 import vite from '../../public/vite.svg'
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <nav>
         <div className='w-screen px-5 py-5 flex flex-row justify-between items-center bg-background
