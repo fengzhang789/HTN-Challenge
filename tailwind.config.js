@@ -20,6 +20,7 @@ export default {
         '3xl': '2.369rem',
         '4xl': '3.158rem',
         '5xl': '4.210rem',
+        '6xl': '5.610rem',
       },
       fontFamily: {
         heading: 'Poppins',

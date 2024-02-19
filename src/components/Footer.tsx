@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer: React.FC = () => {
     return (
-        <footer className='w-screen bg-bgPrimary text-center'>
+        <footer className='w-full bg-bgSecondary text-center'>
             <p className="text-text text-md font-bold py-4
-                          md:text-xl lg:text-2xl ">Celebrating 10 years of innovation</p>
+                          md:text-lg md:py-6 xl:py-8 xl:text-xl">Celebrating 10 years of innovation</p>
         </footer>
     );
 };
