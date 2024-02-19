@@ -4,6 +4,13 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      'sm': '576px',
+      'md': '768px',
+      'lg': '992px',
+      'xl': '1200px',
+      '2xl': '1400px'
+    },
     extend: {
       fontSize: {
         sm: '0.750rem',
@@ -24,10 +31,11 @@ export default {
       },
       colors: {
         'text': 'oklab(94.12% 0.009 -0.02)',
-        'background': 'oklab(7.30% 0.003 -0.02)',
+        'bgPrimary': 'oklab(7.30% 0.003 -0.02)',
+        'bgSecondary': '#020024',
         'primary': 'oklab(45.61% 0.016 -0.24)',
         'secondary': 'oklab(12.16% 0.001 -0.08)',
-        'accent': 'oklab(36.92% -0.023 -0.25)',
+        'accent': '#534FC3',
        },
     },
   },

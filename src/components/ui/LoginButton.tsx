@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
 
 // LoginButton() is a React functional component that returns the log in button.
-const LoginButton = () => {
+const LoginButton: React.FC = () => {
     const { loginWithRedirect } = useAuth0()
 
     return (
