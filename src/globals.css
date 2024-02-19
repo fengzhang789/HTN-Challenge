@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove x-direction scrolling and overlflow */
 html {
     overflow-x: hidden;
 }
