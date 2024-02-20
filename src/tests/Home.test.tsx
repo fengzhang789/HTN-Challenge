@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Home from '../views/Home';
+import Home from '../views/Home/Home';
 
 describe('Navbar tests', () => {
     test('Home text is rendered', () => {

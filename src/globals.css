@@ -5,4 +5,9 @@
 /* Remove x-direction scrolling and overlflow */
 html {
     overflow-x: hidden;
+    color: oklab(94.12% 0.009 -0.02);
+}
+
+#root {
+    overflow: auto;
 }
