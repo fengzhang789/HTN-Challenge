@@ -1,25 +1,19 @@
 import React from 'react'
 import { getTime } from '../../utils/dates'
-import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
-import { Event } from '../../types/index'
+import { EventDetails } from '../../types/index'
 
 type Props = {
-  event: Event
+  event: EventDetails
 }
 
 const EventCard: React.FC<Props> = ({ event }: Props) => {
-  const { isAuthenticated } = useAuth0()
-
-  
-
   return (
     <div className="event bg-card mx-5 py-4 px-5 rounded-xl border-accent border-2 border-opacity-[0.4]
                     sm:mx-10">
       <p className="text-md">{`${getTime(event.start_time)} - ${getTime(event.end_time)}`}</p>
       <h2 className="font-bold text-accent text-xl pb-3
                      md:text-2xl">{event.name}</h2>
-      {/* <p className="pb-4 leading-7">{event.description}</p> */}
 
       {/* Prints the speakers if there are any */}
       {event.speakers.length > 0 ? (
@@ -49,15 +43,3 @@ const EventCard: React.FC<Props> = ({ event }: Props) => {
 }
 
 export default EventCard
-
-
-
-// {/* PUBLIC URL */}
-// {event.public_url && (
-//   <PrimaryButton text="Recording" link={event.public_url} />
-// )}
-
-// {/* PRIVATE URL */}
-// {event.private_url && isAuthenticated ? (
-//   <PrimaryButton text="View Event" link={event.private_url} />
-// ) : null}

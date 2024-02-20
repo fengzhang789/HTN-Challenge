@@ -1,5 +1,5 @@
 // Event type
-export type Event = {
+export type EventDetails = {
   id: string,
   name: string,
   event_type: string,
@@ -15,7 +15,11 @@ export type Event = {
   related_events: string[],
 }
 
+export type Event = {
+  sampleEvent: EventDetails
+}
+
 // Events type
 export type Events = {
-  sampleEvents: Event[]
+  sampleEvents: EventDetails[]
 }

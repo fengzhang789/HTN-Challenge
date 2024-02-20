@@ -1,35 +1,22 @@
-import { useState, useEffect } from 'react';
-import { gql, request } from 'graphql-request';
-import { Event } from '../types/index';
+import { useEffect, useState, } from 'react';
+import { Events, EventDetails } from '../types/index';
+import useAllEventData from './useAllEventData';
 
-// useEventData(eventID) is a custom React hook that fetches event data for eventID from the graphQL API.
-const useEventData = (eventID: string): Event | null => {
-  const [event, setEvents] = useState<Event | null>(null);
+// useEventData(eventID) is a custom React hook that fetches ALL data for a singular event
+const useEventData = (eventID: string): EventDetails | null => {
+  const [event, setEvent] = useState<EventDetails | null>(null);
+  const data: Events | null = useAllEventData();
 
   useEffect(() => {
-    const query = gql`
-      query {
-        sampleEvent (id: ${eventID}) {
-          id
-          name
-          event_type
-          permission
-          start_time
-          end_time
-          description
-        }
+    if (data) {
+      const event = data.sampleEvents.find((event) => event.id == eventID);
+      if (event) {
+        setEvent(event as EventDetails);
       }
-    `
-
-    // Fetches all event data from the graphQL API, given VITE_ALL_EVENTS_API_URL in the .env file.
-    request(import.meta.env.VITE_ALL_EVENTS_API_URL, query).then((data: Event | unknown) => {
-      
-      if (data) {
-        setEvents(data as Event)
-      }
-    })
-  }, [])
-
+    }
+  
+  }, [data, eventID])
+  
   return event;
 }
 
