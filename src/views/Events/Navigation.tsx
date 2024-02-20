@@ -2,7 +2,7 @@ import React from 'react'
 import SidebarLink from "./SidebarLink";
 import LoginButton from "../../components/ui/LoginButton";
 import logo from "../../assets/images/logo.png";
-import Navbar from "../Home/Navbar";
+import Navbar from "../../components/Navbar";
 import { Home, Calendar } from 'react-flaticons'
 import { useEffect, useState } from 'react';
 

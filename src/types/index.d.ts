@@ -1,3 +1,4 @@
+// Event type
 export type Event = {
   id: string,
   name: string,
@@ -14,6 +15,7 @@ export type Event = {
   related_events: string[],
 }
 
+// Events type
 export type Events = {
   sampleEvents: Event[]
 }

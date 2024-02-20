@@ -2,23 +2,10 @@ import React from 'react'
 import { getTime } from '../../utils/dates'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
+import { Event } from '../../types/index'
 
 type Props = {
-  event: {
-    id: string,
-    name: string,
-    event_type: string,
-    permission: string,
-    start_time: number,
-    end_time: number,
-    description: string,
-    speakers: {
-    name: string,
-    }[],
-    public_url: string,
-    private_url: string,
-    related_events: string[],
-  }
+  event: Event
 }
 
 const EventCard: React.FC<Props> = ({ event }: Props) => {

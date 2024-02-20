@@ -1,6 +1,6 @@
-import LoginButton from '../../components/ui/LoginButton'
-import PrimaryButton from '../../components/ui/PrimaryButton'
-import logo from '../../assets/images/logo.png'
+import LoginButton from './ui/LoginButton'
+import PrimaryButton from './ui/PrimaryButton'
+import logo from '../assets/images/logo.png'
 
 const Navbar: React.FC = () => {
   return (

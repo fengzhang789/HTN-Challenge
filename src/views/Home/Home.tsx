@@ -1,4 +1,4 @@
-import Navbar from "./Navbar"
+import Navbar from "../../components/Navbar"
 import Footer from "./Footer"
 
 // Home() is a React functional component that returns the homepage of the app.
