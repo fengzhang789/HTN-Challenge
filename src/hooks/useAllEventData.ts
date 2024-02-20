@@ -33,7 +33,7 @@ const useAllEventData = (): Events | null => {
     // Fetches all event data from the graphQL API, given VITE_ALL_EVENTS_API_URL in the .env file.
     request(import.meta.env.VITE_ALL_EVENTS_API_URL, query).then((data: Events | unknown) => {
       if (data) {
-        
+
         // If the user is not logged in, remove the private events
         if (!isAuthenticated) {
           (data as Events).sampleEvents = (data as Events).sampleEvents.filter((event) => {

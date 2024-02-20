@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Navbar: React.FC = () => {
   return (
     <nav className="">
-        <div className='w-screen px-5 py-5 flex flex-row justify-between items-center bg-bgPrimary
+        <div className='w-full px-5 py-5 flex flex-row justify-between items-center bg-bgPrimary
                         sm:px-8 md:px-12 lg:px-16 xl:px-20 xl:py-6'>
             <header className='inline'>
               <Link to="/">
@@ -15,8 +15,8 @@ const Navbar: React.FC = () => {
             </header>
 
             <div className='inline flex flex-row gap-4 sm:gap-6 xl:gap-8'>
-                <LoginButton />
-                <PrimaryButton text='Events' link='/events'/>
+              <LoginButton />
+              <PrimaryButton text='Events' link='/events'/>
             </div>
         </div>
     </nav>
