@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // import { gql, request } from 'graphql-request';
-import { EventDetails } from '../types/index';
+import { EventDetails, Events } from '../types/index';
 // import { useAuth0 } from '@auth0/auth0-react';
 
 
