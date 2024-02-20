@@ -1,5 +1,5 @@
 import { render, screen, act } from '@testing-library/react';
-import Navbar from '../components/Navbar';
+import Navbar from '../views/Home/Navbar';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('Navbar tests', () => {
