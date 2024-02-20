@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { gql, request } from "graphql-request";
 import Navigation from "./Navigation";
+import EventCard from "./EventCard";
 
 type Event = {
   sampleEvents: {
@@ -52,17 +53,16 @@ const Events: React.FC = () => {
   }, [])
 
   return (
-    <main className="events flex flex-col w-screen min-h-screen h-full
-                     md:flex-row overflow-scroll">
+    <main className="events flex flex-col w-full min-h-screen h-full
+                     md:flex-row">
       {/* NAVBAR */}
-      
       <Navigation />
       
 
       {/* RIGHT DASHBOARD */}
-      <section className="right-dash bg-bgPrimary min-h-screen h-full w-full md:ml-60
-                          lg:ml-72 xl:ml-80">
-        <h1 className="font-bold text-2xl text-center py-5">Events</h1>
+      <section className="right-dash bg-bgPrimary min-h-screen h-full w-full pb-6
+                          md:ml-60 lg:ml-72 xl:ml-80">
+        <h1 className="font-bold text-2xl text-center py-5">Events & Workshops</h1>
         
         {events ? (
           // When the events are loaded, display them
@@ -70,12 +70,8 @@ const Events: React.FC = () => {
             {events.sampleEvents.sort((a, b) => {
               return a.start_time > b.start_time ? 1 : -1;
             }).map(event => (
-                <div className="event bg-card mx-5 py-4 px-5 rounded-xl" key={event.id}>
-                  <h2 className="font-bold text-xl pb-3">{event.name}</h2>
-                  <p>{event.start_time}</p>
-                  <p>{event.description}</p>
-                </div>
-              ))}
+              <EventCard event={event} key={event.id} />
+            ))}
           </div>
         ) : (
           <p>Loading...</p>
