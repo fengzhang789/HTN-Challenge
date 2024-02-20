@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 // import { gql, request } from 'graphql-request';
 import { Events } from '../types/index';
-// import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 // useAllEventData() is a custom React hook that fetches all event data from the graphQL API.
 const useAllEventData = (): Events | null => {
   const [events, setEvents] = useState<Events | null>(null);
-  // const { isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   // const header = {
   //   'Content-Type': 'application/json'
   // }
@@ -55,9 +55,14 @@ const useAllEventData = (): Events | null => {
       .then(data => {
         console.log(data)
         if (data) {
+          // If the user is not logged in, remove the private events
+          if (!isAuthenticated) {
+            (data as Events).sampleEvents = (data as Events).sampleEvents.filter((event) => {
+              return event.permission === "public";
+            });
+          }
           setEvents({sampleEvents: data} as Events)
         }
-        
       })
   }, [])
 
