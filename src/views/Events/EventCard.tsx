@@ -1,6 +1,7 @@
 import React from 'react'
-import PrimaryButton from '../../components/ui/PrimaryButton'
+import { getTime } from '../../utils/dates'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
 type Props = {
   event: {
@@ -9,7 +10,7 @@ type Props = {
     event_type: string,
     permission: string,
     start_time: number,
-    end_time: string,
+    end_time: number,
     description: string,
     speakers: {
     name: string,
@@ -23,21 +24,19 @@ type Props = {
 const EventCard: React.FC<Props> = ({ event }: Props) => {
   const { isAuthenticated } = useAuth0()
 
-  // Neatly converts a unix timestamp to a date string
-  const unixToDate = (unix: number) => {
-    const date = new Date(unix);
-    return date.toDateString() + ", " + date.toString().split(" ")[4];
-  }
+  
 
   return (
-    <div className="event bg-card mx-5 py-4 px-5 rounded-xl" key={event.id}>
-      <p className="text-md">{unixToDate(event.start_time)}</p>
-      <h2 className="font-bold text-accent text-xl pb-3">{event.name}</h2>
-      <p className="pb-4 leading-7">{event.description}</p>
+    <div className="event bg-card mx-5 py-4 px-5 rounded-xl border-accent border-2 border-opacity-[0.4]
+                    sm:mx-10">
+      <p className="text-md">{`${getTime(event.start_time)} - ${getTime(event.end_time)}`}</p>
+      <h2 className="font-bold text-accent text-xl pb-3
+                     md:text-2xl">{event.name}</h2>
+      {/* <p className="pb-4 leading-7">{event.description}</p> */}
 
       {/* Prints the speakers if there are any */}
       {event.speakers.length > 0 ? (
-        <p className="pb-4">Presented by: {
+        <p className="pb-4">By: {
           event.speakers.map((speaker, index) => (
             <span key={index}>
               {speaker.name}
@@ -49,15 +48,13 @@ const EventCard: React.FC<Props> = ({ event }: Props) => {
         ) : null}
       
       <div className='links flex flex-row gap-3'>
-        {/* PUBLIC URL */}
-        {event.public_url && (
-          <PrimaryButton text="Recording" link={event.public_url} />
-        )}
+        <button className="bg-primary w-[50%] max-w-[150px] py-1 md:py-2 rounded-full">
+          <Link to={`/events/${event.id}`}>
+            View Event
+          </Link>
+        </button>
+
         
-        {/* PRIVATE URL */}
-        {event.private_url && isAuthenticated ? (
-          <PrimaryButton text="Join Event" link={event.private_url} />
-        ) : null}
       </div>
       
     </div>
@@ -65,3 +62,15 @@ const EventCard: React.FC<Props> = ({ event }: Props) => {
 }
 
 export default EventCard
+
+
+
+// {/* PUBLIC URL */}
+// {event.public_url && (
+//   <PrimaryButton text="Recording" link={event.public_url} />
+// )}
+
+// {/* PRIVATE URL */}
+// {event.private_url && isAuthenticated ? (
+//   <PrimaryButton text="View Event" link={event.private_url} />
+// ) : null}

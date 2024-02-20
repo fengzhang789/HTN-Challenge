@@ -10,7 +10,7 @@ type Event = {
     event_type: string,
     permission: string,
     start_time: number,
-    end_time: string,
+    end_time: number,
     description: string,
     speakers: {
       name: string,
@@ -46,9 +46,10 @@ const Events: React.FC = () => {
       }
     `
 
-    request('https://api.hackthenorth.com/v3/graphql', query).then((data) => {
-      setEvents(data)
-      console.log(data)
+    request('https://api.hackthenorth.com/v3/graphql', query).then((data: Event | unknown) => {
+      if (data) {
+        setEvents(data as Event)
+      }
     })
   }, [])
 
@@ -60,7 +61,7 @@ const Events: React.FC = () => {
       
 
       {/* RIGHT DASHBOARD */}
-      <section className="right-dash bg-bgPrimary min-h-screen h-full w-full pb-6
+      <section className="right-dash bg-secondary min-h-screen h-full w-full pb-6
                           md:ml-60 lg:ml-72 xl:ml-80">
         <h1 className="font-bold text-2xl text-center py-5">Events & Workshops</h1>
         
