@@ -17,14 +17,17 @@ const EventsPage: React.FC = () => {
 
   // Remove the accent class from all the buttons
   const removeAccent = (): void => {
-    const buttons = document.querySelectorAll('input[type="button"]')
-    buttons?.forEach(button => button.classList.remove("bg-accent"))
-  }
+    const buttons = document.querySelectorAll('input[type="button"]');
+    buttons?.forEach((button) => {
+      button.classList.remove("bg-accent");
+      button.classList.add("bg-primary");
+    });
+  };
 
   // set the events to allData when it is loaded
   useEffect(() => {
-    setEvents(allData)
-  }, [allData])
+    setEvents(allData);
+  }, [allData]);
 
   // EVENT FILTERING
   useEffect(() => {
@@ -40,6 +43,7 @@ const EventsPage: React.FC = () => {
         // add the accent class to the selected button
         const filterButtonElement: HTMLInputElement | null = document.querySelector(`input[value="${selectedEventType}"]`)
         filterButtonElement?.classList.add("bg-accent");
+        filterButtonElement?.classList.remove("bg-primary");
         
         const typeMatches: boolean = event.event_type === selectedEventType.split(" ").join("_").toLowerCase(); // the split and join is needed for tech_talk
         return typeMatches && nameMatches;
@@ -74,7 +78,7 @@ const EventsPage: React.FC = () => {
             {/* BUTTONS CONTAINER */}
             <div className="buttons-container w-full flex flex-row gap-4 sm:w-auto">
               {eventTypes.map((type, index) => (
-                <input className="bg-primary w-24 max-w-[150px] py-1 md:py-2 rounded-full"
+                <input className="bg-primary w-24 max-w-[150px] py-1 md:py-2 rounded-full cursor-pointer"
                   type="button"
                   value={type} 
                   key={index} 
