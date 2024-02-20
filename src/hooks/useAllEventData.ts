@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // import { gql, request } from 'graphql-request';
-import { EventDetails, Events } from '../types/index';
+import { Events } from '../types/index';
 // import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -54,7 +54,10 @@ const useAllEventData = (): Events | null => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        setEvents(data as EventDetails[])
+        if (data) {
+          setEvents({sampleEvents: data} as Events)
+        }
+        
       })
   }, [])
 
