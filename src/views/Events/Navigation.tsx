@@ -30,8 +30,8 @@ const Navigation: React.FC = () => {
     }, [])
 
     return (
-        <section className="left-dash bg-bgPrimary h-full
-                            md:w-60 md:h-screen md:p-5 md:flex md:flex-col md:justify-between
+        <section className="left-dash bg-bgPrimary h-full top-0
+                            md:fixed md:w-60 md:h-screen md:p-5 md:flex md:flex-col md:justify-between
                             lg:w-72 xl:w-80">
             {isSidebarOpen ? (
                 <React.Fragment>

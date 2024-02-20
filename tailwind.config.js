@@ -37,6 +37,7 @@ export default {
         'primary': 'oklab(45.61% 0.016 -0.24)',
         'secondary': 'oklab(12.16% 0.001 -0.08)',
         'accent': '#534FC3',
+        'card': '#0d0b2e',
        },
     },
   },
