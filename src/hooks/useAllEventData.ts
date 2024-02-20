@@ -8,6 +8,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 const useAllEventData = (): Events | null => {
   const [events, setEvents] = useState<Events | null>(null);
   const { isAuthenticated } = useAuth0();
+  const header = {
+    'Content-Type': 'application/json'
+  }
 
   useEffect(() => {
     const query = gql`
@@ -31,7 +34,7 @@ const useAllEventData = (): Events | null => {
     `
 
     // Fetches all event data from the graphQL API, given VITE_ALL_EVENTS_API_URL in the .env file.
-    request(import.meta.env.VITE_ALL_EVENTS_API_URL, query).then((data: Events | unknown) => {
+    request(import.meta.env.VITE_ALL_EVENTS_API_URL, query, undefined, header).then((data: Events | unknown) => {
       if (data) {
 
         // If the user is not logged in, remove the private events
