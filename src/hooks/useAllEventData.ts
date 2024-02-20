@@ -33,20 +33,28 @@ const useAllEventData = (): Events | null => {
       }
     `
 
-    // Fetches all event data from the graphQL API, given VITE_ALL_EVENTS_API_URL in the .env file.
-    request(import.meta.env.VITE_ALL_EVENTS_API_URL, query, undefined, header).then((data: Events | unknown) => {
-      if (data) {
+    // // Fetches all event data from the graphQL API, given VITE_ALL_EVENTS_API_URL in the .env file.
+    // request(import.meta.env.VITE_ALL_EVENTS_API_URL, query, undefined).then((data: Events | unknown) => {
+    //   if (data) {
 
-        // If the user is not logged in, remove the private events
-        if (!isAuthenticated) {
-          (data as Events).sampleEvents = (data as Events).sampleEvents.filter((event) => {
-            return event.permission === "public";
-          });
-        }
+    //     // If the user is not logged in, remove the private events
+    //     if (!isAuthenticated) {
+    //       (data as Events).sampleEvents = (data as Events).sampleEvents.filter((event) => {
+    //         return event.permission === "public";
+    //       });
+    //     }
 
-        setEvents(data as Events)
-      }
-    })
+    //     setEvents(data as Events)
+    //   }
+    // })
+
+
+    // fetch 
+    fetch('https://api.hackthenorth.com/v3/events')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
   }, [])
 
   return events;
