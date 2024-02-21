@@ -98,7 +98,7 @@ const EventsPage: React.FC = () => {
           </div>
           
           {/* SEARCH BOX */}
-          <div className="search-box xl:w-[80%]">
+          <div className="search-box xl:w-[80%] pb-5">
             <h3 className="font-bold text-lg">Search for an event:</h3>
             <input className="bg-text rounded-md py-1 w-full placeholder:italic text-black pl-5" 
               type="text" placeholder="Search for an event" 

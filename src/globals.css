@@ -11,3 +11,11 @@ html {
 #root {
     overflow: auto;
 }
+
+.hover-expand {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-expand:hover {
+  transform: scale(1.07);
+}

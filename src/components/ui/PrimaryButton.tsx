@@ -12,7 +12,7 @@ const PrimaryButton = (props: Props) => {
     if (link) {
         return (
             <Link to={link}>
-                <button className='bg-primary text-text py-1 px-4 rounded-lg
+                <button className='bg-primary text-text py-1 px-4 rounded-lg hover-expand
                                    sm:py-2 sm:px-5 md:px-6 xl:text-lg'>
                     {text}
                 </button>
@@ -20,7 +20,7 @@ const PrimaryButton = (props: Props) => {
         );
     } else {
         return (
-            <button className='bg-primary text-text py-1 px-4 rounded-lg
+            <button className='bg-primary text-text py-1 px-4 rounded-lg hover-expand
                                sm:py-2 sm:px-5 md:px-6 xl:text-lg'>
                 {text}
             </button>

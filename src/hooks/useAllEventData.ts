@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // import { gql, request } from 'graphql-request';
-import { Events } from '../types/index';
+import { EventDetails, Events } from '../types/index';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -53,11 +53,11 @@ const useAllEventData = (): Events | null => {
     fetch('https://api.hackthenorth.com/v3/events')
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        console.log(`data: ${data}`)
         if (data) {
           // If the user is not logged in, remove the private events
           if (!isAuthenticated) {
-            (data as Events).sampleEvents = (data as Events).sampleEvents.filter((event) => {
+            (data as EventDetails[]) = (data as EventDetails[]).filter((event) => {
               return event.permission === "public";
             });
           }

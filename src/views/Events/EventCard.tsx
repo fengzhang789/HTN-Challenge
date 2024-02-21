@@ -30,7 +30,7 @@ const EventCard: React.FC<Props> = ({ event }: Props) => {
       ) : null}
       
       <div className='links flex flex-row gap-3'>
-        <button className="bg-primary w-[50%] max-w-[150px] py-1 md:py-2 rounded-full">
+        <button className="bg-primary w-[50%] max-w-[150px] py-1 md:py-2 rounded-full hover-expand">
           <Link to={`/events/${event.id}`}>
             View Event
           </Link>
