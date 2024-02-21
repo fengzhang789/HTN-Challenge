@@ -49,8 +49,8 @@ const useAllEventData = (): Events | null => {
     // })
 
 
-    // fetch 
-    fetch('https://api.hackthenorth.com/v3/events')
+    // Fetches all event data from the REST API, given VITE_ALL_EVENTS_API_URL in the .env file.
+    fetch(import.meta.env.VITE_ALL_EVENTS_API_URL)
       .then(response => response.json())
       .then(data => {
         console.log(`data: ${data}`)
@@ -64,7 +64,7 @@ const useAllEventData = (): Events | null => {
           setEvents({sampleEvents: data} as Events)
         }
       })
-  }, [])
+  }, [isAuthenticated])
 
   return events;
 }

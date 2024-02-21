@@ -1,8 +1,9 @@
-import LoginButton from './ui/LoginAndLogoutButton'
+import LoginAndLogoutButton from './ui/LoginAndLogoutButton'
 import PrimaryButton from './ui/PrimaryButton'
 import logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
 
+// Navbar() is a React functional component that returns the navigation bar.
 const Navbar: React.FC = () => {
   return (
     <nav className="">
@@ -15,7 +16,7 @@ const Navbar: React.FC = () => {
             </header>
 
             <div className='inline flex flex-row gap-4 sm:gap-6 xl:gap-8'>
-              <LoginButton />
+              <LoginAndLogoutButton />
               <PrimaryButton text='Events' link='/events'/>
             </div>
         </div>
