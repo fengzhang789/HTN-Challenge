@@ -72,13 +72,14 @@ const EventsPage: React.FC = () => {
                         sm:px-10 xl:flex xl:flex-col xl:items-center xl:px-0">
 
           {/* FILTERS WITH BUTTONS */}
-          <div className="filters flex flex-col justify-between w-full sm:flex-row sm:justify-between xl:w-[80%]">
-            <h3 className="font-bold text-lg">Filters:</h3>
+          <div className="filters xl:w-[80%]">
 
             {/* BUTTONS CONTAINER */}
-            <div className="buttons-container w-full flex flex-row gap-4 sm:w-auto">
+            <div className="buttons-container w-full flex flex-row justify-center gap-4 pb-2 
+                            sm:w-auto sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10">
               {eventTypes.map((type, index) => (
-                <input className="bg-primary w-24 max-w-[150px] py-1 md:py-2 rounded-full cursor-pointer"
+                <input className="bg-primary w-24 max-w-[150px] py-1 md:py-2 rounded-full cursor-pointer 
+                                  sm:w-28 xl:w-32"
                   type="button"
                   value={type} 
                   key={index} 
@@ -90,7 +91,6 @@ const EventsPage: React.FC = () => {
                       return
                     } else {
                       setSelectedEventType(type)
-                      console.log(type);
                     }
                 }}/>
               ))}

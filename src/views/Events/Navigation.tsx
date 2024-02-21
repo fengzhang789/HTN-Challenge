@@ -4,31 +4,13 @@ import LoginAndLogoutButton from "../../components/ui/LoginAndLogoutButton";
 import logo from "../../assets/images/logo.png";
 import Navbar from "../../components/Navbar";
 import { Home, Calendar, Clock, Notebook } from 'react-flaticons'
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useIsMenuOpen from '../../hooks/useIsMenuOpen';
 
 
 // Navigation() is a React functional component that returns the sidebar or the navigation menu.
 const Navigation: React.FC = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean | null>(null);
-
-    // Sets the isSideBarOpen state to true if the window width is greater than 768px (tablet)
-    useEffect(() => {
-        const handleResize = (): void => {
-            if (window.innerWidth >= 768) {
-                setIsSidebarOpen(true);
-            } else {
-                setIsSidebarOpen(false);
-            }
-        };
-
-        handleResize();
-        window.addEventListener('resize', handleResize);
-
-        return (): void => {
-            window.removeEventListener('resize', handleResize);
-        }; 
-    }, [])
+    const isSidebarOpen = useIsMenuOpen();
 
     return (
       <section className="left-dash bg-bgPrimary h-full top-0

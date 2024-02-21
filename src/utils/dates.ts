@@ -6,6 +6,7 @@ export const getTime = (unix: number) => {
   return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
 }
 
+// Neatly converts a unix timestamp to a date string
 export const getDate = (unix: number) => {
   const date = new Date(unix);
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });

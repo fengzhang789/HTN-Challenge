@@ -19,11 +19,8 @@ const EventDetailsPage: React.FC = () => {
 
   // Find the infomration on the related events
   const relatedEvents = event?.related_events.map((relatedEvent) => {
-    console.log(relatedEvent)
     return allData?.sampleEvents.find((event) => event.id == relatedEvent);
   });
-
-  console.log(relatedEvents)
   
   return (
     <React.Fragment>

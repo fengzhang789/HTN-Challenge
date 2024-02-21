@@ -53,7 +53,6 @@ const useAllEventData = (): Events | null => {
     fetch(import.meta.env.VITE_ALL_EVENTS_API_URL)
       .then(response => response.json())
       .then(data => {
-        console.log(`data: ${data}`)
         if (data) {
           // If the user is not logged in, remove the private events
           if (!isAuthenticated) {
