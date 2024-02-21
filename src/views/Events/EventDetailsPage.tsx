@@ -8,7 +8,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import useEventData from '../../hooks/useEventData';
 import useAllEventData from '../../hooks/useAllEventData';
-// 
+import Footer from '../../components/Footer';
+
+// EventDetailsPage() is a React functional component that returns the page which describes each event in more detail.
 const EventDetailsPage: React.FC = () => {
   const { eventId } = useParams();
   const { isAuthenticated } = useAuth0();
@@ -65,10 +67,11 @@ const EventDetailsPage: React.FC = () => {
             }
             
           </main>
+          <Footer />
         </React.Fragment>
         
       ) : (
-        <div className='text-black'>Loading...</div>
+        <div className='text-black'>Loading Data...</div>
       )}
     </React.Fragment>
   );

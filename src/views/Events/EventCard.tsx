@@ -17,17 +17,17 @@ const EventCard: React.FC<Props> = ({ event }: Props) => {
     
       {/* If the event is a workshop, a star icon is displayed */}
       {event.event_type === "workshop" && (
-        <img src={gear} alt="rotating icon" className="w-10 absolute top-3 right-3 rotate sm:w-12 md:w-14" />
+        <img src={gear} loading='lazy' alt="rotating icon" className="w-10 absolute top-3 right-3 rotate sm:w-12 md:w-14" />
       )}
 
       {/* If the event is an activity, a gear icon is displayed */}
       {event.event_type === "activity" && (
-        <img src={star} alt="rotating icon" className="w-16 absolute top-0 right-0 rotate sm:w-18 md:w-20" />
+        <img src={star} loading='lazy' alt="rotating icon" className="w-16 absolute top-0 right-0 rotate sm:w-18 md:w-20" />
       )}
 
       {/* If the event is a tech talk, a gear icon is displayed */}
       {event.event_type === "tech_talk" && (
-        <img src={microphone} alt="rotating icon" className="w-8 absolute top-3 right-3 rotate sm:w-10 md:w-12" />
+        <img src={microphone} loading='lazy' alt="rotating icon" className="w-8 absolute top-3 right-3 rotate sm:w-10 md:w-12" />
       )}
       
 

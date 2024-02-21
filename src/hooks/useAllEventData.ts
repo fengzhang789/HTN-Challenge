@@ -8,11 +8,39 @@ import { useAuth0 } from '@auth0/auth0-react';
 const useAllEventData = (): Events | null => {
   const [events, setEvents] = useState<Events | null>(null);
   const { isAuthenticated } = useAuth0();
+
+  useEffect(() => {
+    // Fetches all event data from the REST API, given VITE_ALL_EVENTS_API_URL in the .env file.
+    fetch(import.meta.env.VITE_ALL_EVENTS_API_URL)
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          // If the user is not logged in, remove the private events
+          if (!isAuthenticated) {
+            (data as EventDetails[]) = (data as EventDetails[]).filter((event) => {
+              return event.permission === "public";
+            });
+          }
+          setEvents({sampleEvents: data} as Events)
+        }
+      })
+  }, [isAuthenticated])
+
+  return events;
+}
+
+
+export default useAllEventData;
+
+
+
+
+
+// GRAPHQL QUERY
   // const header = {
   //   'Content-Type': 'application/json'
   // }
 
-  useEffect(() => {
     // const query = gql`
     //   query {
     //     sampleEvents {
@@ -47,26 +75,3 @@ const useAllEventData = (): Events | null => {
     //     setEvents(data as Events)
     //   }
     // })
-
-
-    // Fetches all event data from the REST API, given VITE_ALL_EVENTS_API_URL in the .env file.
-    fetch(import.meta.env.VITE_ALL_EVENTS_API_URL)
-      .then(response => response.json())
-      .then(data => {
-        if (data) {
-          // If the user is not logged in, remove the private events
-          if (!isAuthenticated) {
-            (data as EventDetails[]) = (data as EventDetails[]).filter((event) => {
-              return event.permission === "public";
-            });
-          }
-          setEvents({sampleEvents: data} as Events)
-        }
-      })
-  }, [isAuthenticated])
-
-  return events;
-}
-
-
-export default useAllEventData;

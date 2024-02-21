@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:eventId" element={<EventDetailsPage />} />
-        <Route path="*" element={<div>404 Not Found :(</div>} />
+        <Route path="*" element={<div className='text-black'>404 Not Found :(</div>} />
       </Routes>
     </>
   )

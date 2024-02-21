@@ -10,6 +10,9 @@
     "preview": "vite preview",
     "test": "vitest"
   },
+  "overrides": {
+    "fsevents": "^2.3.3"
+  },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
     "express": "^4.18.2",
