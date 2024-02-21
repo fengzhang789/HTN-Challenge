@@ -6,7 +6,7 @@ type Props = {
     icon: React.ReactElement,
     link: string,
 }
-
+// SidebarLink() is a React functional component that returns a link in the sidebar, used in the Navigation component.
 const SidebarLink: React.FC<Props> = ({text, icon, link}: Props) => {
     return (
         <li className='flex flex-row items-center gap-3 lg:text-lg xl:text-xl xl:gap-4 '>

@@ -10,6 +10,7 @@ type Props = {
   event: EventDetails
 }
 
+// Renders an event card on the /events page.
 const EventCard: React.FC<Props> = ({ event }: Props) => {
   return (
     <div className="event bg-card mx-5 py-4 px-5 rounded-xl border-accent border-2 border-opacity-[0.4] relative
@@ -50,6 +51,7 @@ const EventCard: React.FC<Props> = ({ event }: Props) => {
         </React.Fragment>
       ) : null}
       
+      {/* Button to view the event */}
       <div className='links flex flex-row gap-3'>
         <button className="bg-primary w-[50%] max-w-[150px] py-1 md:py-2 rounded-full hover-expand">
           <Link to={`/events/${event.id}`}>

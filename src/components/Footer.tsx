@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Footer() is a React functional component that returns the footer of the website.
 const Footer: React.FC = ()  => {
     return (
         <footer className='w-full bg-bgSecondary text-center'>

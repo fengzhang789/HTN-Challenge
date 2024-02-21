@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="">
       {!isMenuOpen ? (
+        // IF THE MENU IS CLOSED, THE NAVBAR IS RETURNED
         <div className='w-full px-5 py-5 flex flex-row justify-between items-center bg-bgPrimary
                         sm:px-8 md:px-12 lg:px-16 xl:px-20 xl:py-6'>
             <header className='inline'>
@@ -24,6 +25,7 @@ const Navbar: React.FC = () => {
               </Link>
             </header>
 
+            {/* IF THE DEVICE IS MOBILE, SHOW THE HAMBURGER MENU INSTEAD */}
             {!hamburgerMenu ? (
               <MenuBurger className="w-8 sm:w-10 lg:w-12" onClick={() => setIsMenuOpen(true)} />
             ) : (

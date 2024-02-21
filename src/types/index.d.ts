@@ -1,4 +1,6 @@
-// Event type
+// THESE TYPES ARE BASED OFF THE API RETURNS OF THE GRAPHQL API
+
+// EventDetails 
 export type EventDetails = {
   id: string,
   name: string,
@@ -15,11 +17,12 @@ export type EventDetails = {
   related_events: string[],
 }
 
+// Type for singular event
 export type Event = {
   sampleEvent: EventDetails
 }
 
-// Events type
+// Type for all events
 export type Events = {
   sampleEvents: EventDetails[]
 }

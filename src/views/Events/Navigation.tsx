@@ -17,8 +17,10 @@ const Navigation: React.FC = () => {
                           md:fixed md:w-60 md:h-screen md:p-5 md:flex md:flex-col md:justify-between
                           lg:w-72 xl:w-80">
           {isSidebarOpen ? (
+            // SIDEBAR IS RETURNED
               <React.Fragment>
                   <div className="top-sidebar">
+                      {/* HEADER */}
                       <header className="sidebar-header flex flex-row items-center gap-3 xl:gap-5">
                         <Link to="/">
                           <img src={logo} alt='Hackathon logo' className="h-8 sm:h-9 lg:h-10 xl:h-12 hover-expand"></img>
@@ -26,6 +28,7 @@ const Navigation: React.FC = () => {
                         <h3 className="text-text font-bold text-lg lg:text-xl xl:text-2xl">Hack the North</h3>
                       </header>
 
+                      {/* NAVIGATION */}
                       <nav className="Navigation text-text text-md font-bold py-8 px-3">
                       <ul className="flex flex-col gap-3">
                           <SidebarLink text="Home" icon={<Home />} link="/" />
@@ -41,6 +44,7 @@ const Navigation: React.FC = () => {
                   </div>
               </React.Fragment>
           ) : (
+            // NAVBAR MENU IS RETURNED
               <Navbar />
           )}
       </section>

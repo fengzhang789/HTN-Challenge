@@ -67,7 +67,7 @@ const EventsPage: React.FC = () => {
                           md:ml-60 lg:ml-72 xl:ml-80">
         <h1 className="font-bold text-2xl text-center py-5">Events & Workshops</h1>
 
-        {/* FILTERING */}
+        {/* FILTERING DASHBOARD */}
         <div className="filter-container w-full px-5 
                         sm:px-10 xl:flex xl:flex-col xl:items-center xl:px-0">
 
@@ -107,9 +107,9 @@ const EventsPage: React.FC = () => {
               setInput(e.target.value)
             }}></input>
           </div>
-          
         </div>
         
+        {/* LOADING THE EVENTS */}
         {events ? (
           // When the events are loaded, display them
           <div className="events-holder flex flex-col justify-center gap-8 xl:items-center xl:w-full">
